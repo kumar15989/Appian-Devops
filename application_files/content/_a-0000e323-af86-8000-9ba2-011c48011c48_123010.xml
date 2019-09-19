@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e323-af86-8000-9ba2-011c48011c48_123206</versionUuid>
+    <rule>
+        <name>test_getFilteredMembers</name>
+        <uuid>_a-0000e323-af86-8000-9ba2-011c48011c48_123010</uuid>
+        <description></description>
+        <parentUuid>_a-0000e2a7-95ca-8000-9ba2-011c48011c48_53728</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>with(
+  local!dataString: #"SYSTEM_SYSRULES_forEach"(
+    ri!data,
+    tostring(
+      {
+        fv!item.groupName,
+        fv!item.groupMembers
+      }
+    )
+  ),
+  local!indexes: where(
+    tointeger(
+      #"SYSTEM_SYSRULES_forEach"(
+        local!dataString,
+        search(
+          ri!searchValue,
+          fv!item,
+          1
+        )
+      )
+    )
+  ),
+  index(
+    ri!data,
+    local!indexes,
+    {}
+  )
+)</definition>
+        <namedTypedValue>
+            <name>data</name>
+            <type>
+                <name>SS_Test?list</name>
+                <namespace>urn:com:appian:types:test</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>searchValue</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e323-af86-8000-9ba2-011c48011c48_123206"/>
+    </history>
+</contentHaul>

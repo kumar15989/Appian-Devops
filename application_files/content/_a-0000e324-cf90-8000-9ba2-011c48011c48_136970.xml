@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e324-cf90-8000-9ba2-011c48011c48_138821</versionUuid>
+    <rule>
+        <name>SS_calendarView</name>
+        <uuid>_a-0000e324-cf90-8000-9ba2-011c48011c48_136970</uuid>
+        <description></description>
+        <parentUuid>_a-0000e2a7-95ca-8000-9ba2-011c48011c48_53728</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  local!year: year(
+    today()
+  ),
+  local!month: month(
+    today()
+  ),
+  #"SYSTEM_SYSRULES_columnsLayout"(
+    columns: {
+      #"SYSTEM_SYSRULES_columnLayout"(
+        contents: {
+          #"_a-0000e324-cf90-8000-9ba2-011c48011c48_137564"(
+            year: local!year
+          )
+        },
+        width: "NARROW"
+      ),
+      #"SYSTEM_SYSRULES_columnLayout"(
+        contents: {
+          #"_a-0000e324-cf90-8000-9ba2-011c48011c48_137715"(
+            month: local!month,
+            year: local!year
+          ),
+          #"_a-0000e324-cf90-8000-9ba2-011c48011c48_137543"(
+            year: local!year,
+            month: local!month
+          )
+        },
+        width: "WIDE_PLUS"
+      )
+    }
+  )
+)</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e324-cf90-8000-9ba2-011c48011c48_138821"/>
+    </history>
+</contentHaul>

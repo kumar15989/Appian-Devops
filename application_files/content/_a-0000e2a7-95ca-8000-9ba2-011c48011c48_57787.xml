@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e2f5-cb25-8000-9ba2-011c48011c48_111320</versionUuid>
+    <rule>
+        <name>SS_test</name>
+        <uuid>_a-0000e2a7-95ca-8000-9ba2-011c48011c48_57787</uuid>
+        <description>dummy interface for testing purpose</description>
+        <parentUuid>_a-0000e2a7-95ca-8000-9ba2-011c48011c48_53728</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>{
+  #"SYSTEM_SYSRULES_gridLayout"(
+  labelposition: "COLLAPSED",
+  totalCount: 2,
+  headerCells: {
+    #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(
+      align: "LEFT"
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(
+      label: ""
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(
+      label: ""
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(
+      label: ""
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(
+      label: ""
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(
+      label: ""
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(
+      label: ""
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(
+      label: ""
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(
+      label: ""
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(
+      label: ""
+    )
+  },
+  columnConfigs: {
+    #"SYSTEM_SYSRULES_gridLayoutColumnConfig"(
+      weight: 3
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutColumnConfig"(
+      weight: 2
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutColumnConfig"(
+      weight: 3
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutColumnConfig"(
+      weight: 2
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutColumnConfig"(
+      weight: 3
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutColumnConfig"(
+      weight: 2
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutColumnConfig"(
+      weight: 3
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutColumnConfig"(
+      weight: 2
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutColumnConfig"(
+      weight: 3
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutColumnConfig"(
+      weight: 3
+    )
+  },
+  rows: {
+    #"SYSTEM_SYSRULES_gridRowLayout"(
+      contents: {
+        #"SYSTEM_SYSRULES_richTextDisplayField"(
+          value: #"SYSTEM_SYSRULES_richTextItem_v1"(
+            text: {
+              "Initiation"
+            },
+            color: "STANDARD",
+            size: "MEDIUM",
+            style: "STRONG"
+          )
+        ),
+        #"SYSTEM_SYSRULES_textField"(
+          readOnly: true()
+        ),
+        #"SYSTEM_SYSRULES_richTextDisplayField"(
+          value: #"SYSTEM_SYSRULES_richTextItem_v1"(
+            text: {
+              "Triage"
+            },
+            color: "STANDARD",
+            size: "MEDIUM",
+            style: "STRONG"
+          )
+        ),
+        #"SYSTEM_SYSRULES_textField"(
+          readOnly: true()
+        ),
+        #"SYSTEM_SYSRULES_richTextDisplayField"(
+          value: #"SYSTEM_SYSRULES_richTextItem_v1"(
+            text: {
+              "Scoping"
+            },
+            color: "STANDARD",
+            size: "MEDIUM",
+            style: "STRONG"
+          )
+        ),
+        #"SYSTEM_SYSRULES_textField"(
+          readOnly: true()
+        ),
+        #"SYSTEM_SYSRULES_richTextDisplayField"(
+          value: #"SYSTEM_SYSRULES_richTextItem_v1"(
+            text: {
+              "Execution"
+            },
+            color:"STANDARD",
+            size: "MEDIUM",
+            style: "STRONG"
+          )
+        ),
+        #"SYSTEM_SYSRULES_textField"(
+          readOnly: true()
+        ),
+        #"SYSTEM_SYSRULES_richTextDisplayField"(
+          value: #"SYSTEM_SYSRULES_richTextItem_v1"(
+            text: {
+              "Closure"
+            },
+            color:"STANDARD",
+            size: "MEDIUM",
+            style: "STRONG"
+          ),
+          align: "LEFT"
+        ),
+        #"SYSTEM_SYSRULES_textField"(
+          readOnly: true()
+        )
+      }
+    )
+    /*a!gridRowLayout(*/
+    /*contents: {*/
+    /*a!imageField(*/
+    /*images: a!documentImage(*/
+    /*document: if(*/
+    /*local!stepColor[1],*/
+    /*cons!BREADCRUMB_IMAGES[3],*/
+    /*cons!BREADCRUMB_IMAGES[8]*/
+    /*)*/
+    /*),*/
+    /*size: "TINY",*/
+    /*align:"END"*/
+    /*),*/
+    /*a!imageField(*/
+    /*images: a!documentImage(*/
+    /*document: if(*/
+    /*local!stepColor[1],*/
+    /*cons!BREADCRUMB_IMAGES[1],*/
+    /*cons!BREADCRUMB_IMAGES[2]*/
+    /*)*/
+    /*),*/
+    /*size: "LARGE",*/
+    /*align: "START"*/
+    /*),*/
+    /*a!imageField(*/
+    /*images: a!documentImage(*/
+    /*document: if(*/
+    /*local!stepColor[2],*/
+    /*cons!BREADCRUMB_IMAGES[4],*/
+    /*cons!BREADCRUMB_IMAGES[9]*/
+    /*)*/
+    /*),*/
+    /*size: "TINY",*/
+    /*align:"START"*/
+    /*),*/
+    /*a!imageField(*/
+    /*images: a!documentImage(*/
+    /*document: if(*/
+    /*local!stepColor[2],*/
+    /*cons!BREADCRUMB_IMAGES[1],*/
+    /*cons!BREADCRUMB_IMAGES[2]*/
+    /*)*/
+    /*),*/
+    /*size: "LARGE"*/
+    /*),*/
+    /*a!imageField(*/
+    /*images: a!documentImage(*/
+    /*document: if(*/
+    /*local!stepColor[3],*/
+    /*cons!BREADCRUMB_IMAGES[5],*/
+    /*cons!BREADCRUMB_IMAGES[10]*/
+    /*)*/
+    /*),*/
+    /*size: "TINY"*/
+    /*),*/
+    /*a!imageField(*/
+    /*images: a!documentImage(*/
+    /*document: if(*/
+    /*local!stepColor[3],*/
+    /*cons!BREADCRUMB_IMAGES[1],*/
+    /*cons!BREADCRUMB_IMAGES[2]*/
+    /*)*/
+    /*),*/
+    /*size: "LARGE"*/
+    /*),*/
+    /*a!imageField(*/
+    /*images: a!documentImage(*/
+    /*document: if(*/
+    /*local!stepColor[4],*/
+    /*cons!BREADCRUMB_IMAGES[6],*/
+    /*cons!BREADCRUMB_IMAGES[11]*/
+    /*)*/
+    /*),*/
+    /*size: "TINY"*/
+    /*),*/
+    /*a!imageField(*/
+    /*images: a!documentImage(*/
+    /*document: if(*/
+    /*local!stepColor[4],*/
+    /*cons!BREADCRUMB_IMAGES[1],*/
+    /*cons!BREADCRUMB_IMAGES[2]*/
+    /*)*/
+    /*),*/
+    /*size: "LARGE"*/
+    /*),*/
+    /*a!imageField(*/
+    /*images: a!documentImage(*/
+    /*document: if(*/
+    /*local!stepColor[5],*/
+    /*cons!BREADCRUMB_IMAGES[7],*/
+    /*cons!BREADCRUMB_IMAGES[12]*/
+    /*)*/
+    /*),*/
+    /*size: "TINY"*/
+    /*)*/
+    /*}*/
+    /*)*/
+  },
+  height: "AUTO",
+  shadeAlternateRows: false(),
+  spacing: "DENSE",
+  borderStyle: "LIGHT"
+
+),
+    #"SYSTEM_SYSRULES_sideBySideLayout"(
+      items: {
+        #"SYSTEM_SYSRULES_sideBySideItem"(
+          item: #"SYSTEM_SYSRULES_imageField_v1"(
+            labelPosition: "COLLAPSED",
+            images: #"SYSTEM_SYSRULES_documentImage"(
+              document:
+                #"_a-0000e2f5-cb25-8000-9ba2-011c48011c48_105197"[8]
+            ),
+            size: "TINY",
+            align: "CENTER"
+          ),
+          width: "MINIMIZE"
+        ),
+        #"SYSTEM_SYSRULES_sideBySideItem"(
+          item: #"SYSTEM_SYSRULES_imageField_v1"(
+            labelPosition: "ABOVE",
+            images: #"SYSTEM_SYSRULES_documentImage"(
+              document:
+                #"_a-0000e2f5-cb25-8000-9ba2-011c48011c48_105197"[2]
+            ),
+            size: "FIT",
+            align: "CENTER"
+          ),
+          width: "MINIMIZE"
+        ),
+        #"SYSTEM_SYSRULES_sideBySideItem"(
+          item: #"SYSTEM_SYSRULES_imageField_v1"(
+            labelPosition: "COLLAPSED",
+            images: #"SYSTEM_SYSRULES_documentImage"(
+              document:
+                #"_a-0000e2f5-cb25-8000-9ba2-011c48011c48_105197"[9]
+            ),
+            size: "TINY",
+            align: "CENTER"
+          ),
+          width: "MINIMIZE"
+        ),
+        #"SYSTEM_SYSRULES_sideBySideItem"(
+          item: #"SYSTEM_SYSRULES_imageField_v1"(
+            labelPosition: "ABOVE",
+            images: #"SYSTEM_SYSRULES_documentImage"(
+              document:#"_a-0000e2f5-cb25-8000-9ba2-011c48011c48_105197"[2]
+            ),
+            size: "FIT",
+            align: "CENTER"
+          ),
+          width: "MINIMIZE"
+        ),
+        #"SYSTEM_SYSRULES_sideBySideItem"(
+          item: #"SYSTEM_SYSRULES_imageField_v1"(
+            labelPosition: "COLLAPSED",
+            images: #"SYSTEM_SYSRULES_documentImage"(
+              document:
+                #"_a-0000e2f5-cb25-8000-9ba2-011c48011c48_105197"[10]
+            ),
+            size: "TINY",
+            align: "CENTER"
+          ),
+          width: "MINIMIZE"
+        ),
+        #"SYSTEM_SYSRULES_sideBySideItem"(
+          item: #"SYSTEM_SYSRULES_imageField_v1"(
+            labelPosition: "ABOVE",
+            images: #"SYSTEM_SYSRULES_documentImage"(
+              document:
+                #"_a-0000e2f5-cb25-8000-9ba2-011c48011c48_105197"[2]
+            ),
+            size: "FIT",
+            align: "CENTER"
+          ),
+          width: "MINIMIZE"
+        ),
+        #"SYSTEM_SYSRULES_sideBySideItem"(
+          item: #"SYSTEM_SYSRULES_imageField_v1"(
+            labelPosition: "COLLAPSED",
+            images: #"SYSTEM_SYSRULES_documentImage"(
+              document:
+                #"_a-0000e2f5-cb25-8000-9ba2-011c48011c48_105197"[11]
+            ),
+            size: "TINY",
+            align: "CENTER"
+          ),
+          width: "MINIMIZE"
+        ),
+        #"SYSTEM_SYSRULES_sideBySideItem"(
+          item: #"SYSTEM_SYSRULES_imageField_v1"(
+            labelPosition: "ABOVE",
+            images: #"SYSTEM_SYSRULES_documentImage"(
+              document:
+                #"_a-0000e2f5-cb25-8000-9ba2-011c48011c48_105197"[2]
+            ),
+            size: "FIT",
+            align: "CENTER"
+          ),
+          width: "MINIMIZE"
+        ),
+        #"SYSTEM_SYSRULES_sideBySideItem"(
+          item: #"SYSTEM_SYSRULES_imageField_v1"(
+            labelPosition: "COLLAPSED",
+            images: #"SYSTEM_SYSRULES_documentImage"(
+              document:
+                #"_a-0000e2f5-cb25-8000-9ba2-011c48011c48_105197"[12]
+            ),
+            size: "TINY",
+            align: "START"
+          ),
+          width: "MINIMIZE"
+        )
+
+      },
+      spacing: "STANDARD"
+    ),
+    #"SYSTEM_SYSRULES_columnsLayout"(
+      columns: {
+        #"SYSTEM_SYSRULES_columnLayout"(
+          contents: #"SYSTEM_SYSRULES_cardLayout"(
+            /*showWhen: local!stepColor[1],*/
+            contents: {
+              #"SYSTEM_SYSRULES_richTextDisplayField"(
+                value: {
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: {
+                      #"SYSTEM_SYSRULES_richTextIcon"(
+                        icon: "circle-thin",
+                        color: "STANDARD",
+                        size: "MEDIUM"
+                      ),
+                      " Submitted"
+                    },
+                    color: "STANDARD"
+                  ),
+                  char(
+                    10
+                  ),
+                  char(
+                    10
+                  ),
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: {
+                      #"SYSTEM_SYSRULES_richTextIcon"(
+                        icon: "circle-thin",
+                        color: "STANDARD",
+                        size: "MEDIUM"
+                      ),
+                      " Demand Coordinator Assigned"
+                    },
+                    color: "STANDARD"
+                  ),
+                  char(
+                    10
+                  ),
+                  char(
+                    32
+                  ),
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: {
+                      #"SYSTEM_SYSRULES_richTextIcon"(
+                        icon: "user",
+                        size: "MEDIUM"
+                      ),
+                      if(
+                        isnull(
+                          index(
+                            ri!cdtRequestDetails,
+                            "demandCoordinator",
+                            {}
+                          )
+                        ),
+                        " Unassigned",
+                        " " &amp; index(
+                          ri!cdtRequestDetails,
+                          "demandCoordinator",
+                          {}
+                        )
+                      )
+                    },
+                    color: "SECONDARY"
+                  )
+                }
+              )
+            },
+            height: "MEDIUM"
+          ),
+          width: "WIDE"
+        ),
+        #"SYSTEM_SYSRULES_columnLayout"(
+          contents: #"SYSTEM_SYSRULES_cardLayout"(
+            /*showWhen: local!stepColor[2],*/
+            contents: {
+              #"SYSTEM_SYSRULES_richTextDisplayField"(
+                value: {
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: {
+                      #"SYSTEM_SYSRULES_richTextIcon"(
+                        icon: "circle-thin",
+                        color: "STANDARD",
+                        size: "MEDIUM"
+                      ),
+                      " Triage Complete"
+                    },
+                    color: "STANDARD"
+                  ),
+                  char(
+                    10
+                  ),
+                  char(
+                    10
+                  ),
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: {
+                      #"SYSTEM_SYSRULES_richTextIcon"(
+                        icon: "circle-thin",
+                        color: "STANDARD",
+                        size: "MEDIUM"
+                      ),
+                      " Scoping Scheduled"
+                    },
+                    color: "STANDARD"
+                  ),
+                  char(
+                    10
+                  ),
+                  char(
+                    32
+                  ),
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: {
+                      #"SYSTEM_SYSRULES_richTextIcon"(
+                        icon: "calendar",
+                        size: "MEDIUM"
+                      ),
+                      if(
+                        isnull(
+                          index(
+                            ri!cdtRequestDetails,
+                            "scopingScheduledDate",
+                            {}
+                          )
+                        ),
+                        " DD/MM/YYYY",
+                        " " &amp; index(
+                          ri!cdtRequestDetails,
+                          "scopingScheduledDate",
+                          {}
+                        )
+                      )
+                    },
+                    color: "SECONDARY"
+                  ),
+                  char(
+                    10
+                  ),
+                  char(
+                    10
+                  ),
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: {
+                      #"SYSTEM_SYSRULES_richTextIcon"(
+                        icon: "circle-thin",
+                        color: "STANDARD",
+                        size: "MEDIUM"
+                      ),
+                      " Execution POC Assigned"
+                    },
+                    color: "STANDARD"
+                  ),
+                  char(
+                    10
+                  ),
+                  char(
+                    32
+                  ),
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: {
+                      #"SYSTEM_SYSRULES_richTextIcon"(
+                        icon: "user",
+                        size: "MEDIUM"
+                      ),
+                      if(
+                        isnull(
+                          index(
+                            ri!cdtRequestDetails,
+                            "executionPOC",
+                            {}
+                          )
+                        ),
+                        " Unassigned",
+                        " " &amp; group(
+                          togroup(
+                            index(
+                              ri!cdtRequestDetails,
+                              "executionPOC",
+                              {}
+                            )
+                          ),
+                          "groupName"
+                        )
+                      )
+                    },
+                    color: "SECONDARY"
+                  )
+                }
+              )
+            },
+            height: "MEDIUM"
+          ),
+          width: "WIDE"
+        ),
+        #"SYSTEM_SYSRULES_columnLayout"(
+          contents: #"SYSTEM_SYSRULES_cardLayout"(
+            /*showWhen: local!stepColor[3],*/
+            contents: {
+              #"SYSTEM_SYSRULES_richTextDisplayField"(
+                value: {
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: {
+                      #"SYSTEM_SYSRULES_richTextIcon"(
+                        icon: "circle-thin",
+                        color: "STANDARD",
+                        size: "MEDIUM"
+                      ),
+                      " Scope Confirmed"
+                    },
+                    color: "STANDARD"
+                  ),
+                  char(
+                    10
+                  ),
+                  char(
+                    32
+                  ),
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: {
+                      if(
+                        "STANDARD" = "ACCENT",
+                        ri!cdtRequestDetails.requestId,
+                        " Link to request"
+                      )
+                    },
+                    link: if(
+                      "STANDARD" = "ACCENT",
+                      #"SYSTEM_SYSRULES_dynamicLink"(
+                        label: ri!cdtRequestDetails.requestId,
+                        value: #"_a-0000e2f5-cb25-8000-9ba2-011c48011c48_95987"(
+                          ri!cdtRequestDetails.requestId
+                        )
+                      ),
+                      {}
+                    ),
+                    color: "SECONDARY",
+                    style: "EMPHASIS"
+                  ),
+                  char(
+                    10
+                  ),
+                  char(
+                    10
+                  ),
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: {
+                      #"SYSTEM_SYSRULES_richTextIcon"(
+                        icon: "circle-thin",
+                        color: "STANDARD",
+                        size: "MEDIUM"
+                      ),
+                      " Completion Date Confirmed"
+                    },
+                    color: "STANDARD"
+                  ),
+                  char(
+                    10
+                  ),
+                  char(
+                    32
+                  ),
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: {
+                      #"SYSTEM_SYSRULES_richTextIcon"(
+                        icon: "calendar",
+                        size: "MEDIUM"
+                      ),
+                      if(
+                        isnull(
+                          index(
+                            ri!cdtRequestDetails,
+                            "scopeCompletionDate",
+                            {}
+                          )
+                        ),
+                        " DD/MM/YYYY",
+                        " " &amp; index(
+                          ri!cdtRequestDetails,
+                          "scopeCompletionDate",
+                          {}
+                        )
+                      )
+                    },
+                    color: "SECONDARY"
+                  )
+                }
+              )
+            },
+            height: "MEDIUM"
+          ),
+          width: "WIDE"
+        ),
+        #"SYSTEM_SYSRULES_columnLayout"(
+          contents: #"SYSTEM_SYSRULES_cardLayout"(
+            /*showWhen: local!stepColor[4],*/
+            contents: {
+              #"SYSTEM_SYSRULES_richTextDisplayField"(
+                value: {
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: {
+                      #"SYSTEM_SYSRULES_richTextIcon"(
+                        icon: "circle-thin",
+                        color: "STANDARD",
+                        size: "MEDIUM"
+                      ),
+                      " Execution Underway"
+                    },
+                    color: "STANDARD"
+                  ),
+                  char(
+                    10
+                  ),
+                  char(
+                    10
+                  ),
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: {
+                      #"SYSTEM_SYSRULES_richTextIcon"(
+                        icon: "circle-thin",
+                        color: "STANDARD",
+                        size: "MEDIUM"
+                      ),
+                      " Execution Complete"
+                    },
+                    color: "STANDARD"
+                  ),
+                  char(
+                    10
+                  ),
+                  char(
+                    32
+                  ),
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: {
+                      if(
+                        "STANDARD" = "ACCENT",
+                        ri!cdtRequestDetails.requestId,
+                        " Link to request"
+                      )
+                    },
+                    link: if(
+                      "STANDARD" = "ACCENT",
+                      #"SYSTEM_SYSRULES_dynamicLink"(
+                        value: #"_a-0000e2f5-cb25-8000-9ba2-011c48011c48_95987"(
+                          ri!cdtRequestDetails.requestId
+                        )
+                      ),
+                      {}
+                    ),
+                    color: "SECONDARY",
+                    style: "EMPHASIS"
+                  ),
+                  char(
+                    10
+                  ),
+                  char(
+                    10
+                  ),
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: {
+                      #"SYSTEM_SYSRULES_richTextIcon"(
+                        icon: "circle-thin",
+                        color: "STANDARD",
+                        size: "MEDIUM"
+                      ),
+                      " Retrospective Scheduled"
+                    },
+                    color: "STANDARD"
+                  ),
+                  char(
+                    10
+                  ),
+                  char(
+                    32
+                  ),
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: {
+                      #"SYSTEM_SYSRULES_richTextIcon"(
+                        icon: "calendar",
+                        size: "MEDIUM"
+                      ),
+                      if(
+                        isnull(
+                          index(
+                            ri!cdtRequestDetails,
+                            "RetrospectiveScheduledDate",
+                            {}
+                          )
+                        ),
+                        " DD/MM/YYYY",
+                        " " &amp; index(
+                          ri!cdtRequestDetails,
+                          "RetrospectiveScheduledDate",
+                          {}
+                        )
+                      )
+                    },
+                    color: "SECONDARY"
+                  )
+                }
+              )
+            },
+            height: "MEDIUM"
+          ),
+          width: "WIDE"
+        ),
+        #"SYSTEM_SYSRULES_columnLayout"(
+          contents: #"SYSTEM_SYSRULES_cardLayout"(
+            /*showWhen: local!stepColor[5],*/
+            contents: {
+              #"SYSTEM_SYSRULES_richTextDisplayField"(
+                value: {
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: {
+                      #"SYSTEM_SYSRULES_richTextIcon"(
+                        icon: "circle-thin",
+                        color: "STANDARD",
+                        size: "MEDIUM"
+                      ),
+                      " Retrospective Complete"
+                    },
+                    color: "STANDARD"
+                  ),
+                  char(
+                    10
+                  ),
+                  char(
+                    10
+                  ),
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: {
+                      #"SYSTEM_SYSRULES_richTextIcon"(
+                        icon: "circle-thin",
+                        color: "STANDARD",
+                        size: "MEDIUM"
+                      ),
+                      " Request Closed"
+                    },
+                    color: "STANDARD"
+                  )
+                }
+              )
+            },
+            height: "MEDIUM"
+          ),
+          width: "WIDE"
+        ),
+        #"SYSTEM_SYSRULES_columnLayout"(
+          width: "AUTO"
+        )
+      },
+      alignvertical: "TOP"
+    )
+    }</definition>
+        <namedTypedValue>
+            <name>status</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>cdtRequestDetails</name>
+            <type>
+                <name>DI_Request_Details</name>
+                <namespace>urn:com:appian:types:DI</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e2f5-cb25-8000-9ba2-011c48011c48_105639"/>
+        <historyInfo versionUuid="_a-0000e2f5-cb25-8000-9ba2-011c48011c48_111320"/>
+    </history>
+</contentHaul>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e2a7-95ca-8000-9ba2-011c48011c48_53792</versionUuid>
+    <rule>
+        <name>SS_UI_drilldownMockup</name>
+        <uuid>_a-0000e2a7-95ca-8000-9ba2-011c48011c48_53733</uuid>
+        <description>Interface for drilldown mockup UI</description>
+        <parentUuid>_a-0000e2a7-95ca-8000-9ba2-011c48011c48_53728</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  local!itemList: {
+    {
+      id: 1,
+      step: "Step 1",
+      options: {
+        "Available",
+        "Accepted",
+        "Completed"
+      }
+    },
+    {
+      id: 2,
+      step: "Step 2",
+      options: {
+        "Available",
+        "Accepted",
+        "Completed",
+        "Rejected"
+      }
+    },
+    {
+      id: 3,
+      step: "Step 3",
+      options: {
+        "Available",
+        "Accepted",
+        "Completed",
+        "Rejected",
+        "Pending"
+      }
+    },
+    {
+      id: 4,
+      step: "Step 4",
+      options: {
+        "Available",
+        "Completed",
+        "Rejected"
+      }
+    },
+    {
+      id: 5,
+      step: "Step 5",
+      options: {
+        "Available",
+        "Accepted",
+        "Rejected",
+        "Pending"
+      }
+    }
+  },
+  local!selectedStep,
+  local!selectedStepOptions,
+  local!selectedOption,
+  #"SYSTEM_SYSRULES_formLayout_v1"(
+    contents: {
+      #"SYSTEM_SYSRULES_columnsLayout"(
+        columns: {
+          #"SYSTEM_SYSRULES_columnLayout"(
+            contents: {
+              #"SYSTEM_SYSRULES_linkField"(
+                label: "Steps",
+                links: #"SYSTEM_SYSRULES_forEach"(
+                  items: local!itemList,
+                  expression: #"SYSTEM_SYSRULES_dynamicLink"(
+                    label: index(
+                      fv!item,
+                      "step",
+                      {}
+                    ),
+                    value: index(
+                      fv!item,
+                      "id",
+                      {}
+                    ),
+                    saveInto: {
+                      local!selectedStep,
+                      a!save(
+                        local!selectedOption,
+                        null
+                      ),
+                      a!save(
+                        local!selectedStepOptions,
+                        split(
+                          index(
+                            index(
+                              local!itemList,
+                              local!selectedStep,
+                              {}
+                            ),
+                            "options",
+                            {}
+                          ),
+                          ";"
+                        )
+                      )
+                    }
+                  )
+                )
+              )
+            }
+          ),
+          #"SYSTEM_SYSRULES_columnLayout"(
+            contents: {
+              if(
+                isnull(
+                  local!selectedStep
+                ),
+                {},
+                #"SYSTEM_SYSRULES_linkField"(
+                  label: "Options",
+                  links: #"SYSTEM_SYSRULES_forEach"(
+                    items: local!selectedStepOptions,
+                    expression: #"SYSTEM_SYSRULES_dynamicLink"(
+                      label: fv!item,
+                      value: fv!item,
+                      saveInto: local!selectedOption
+                    )
+                  )
+                )
+              )
+            }
+          ),
+          #"SYSTEM_SYSRULES_columnLayout"(
+            contents: {
+              if(
+                isnull(
+                  local!selectedOption
+                ),
+                {},
+                #"SYSTEM_SYSRULES_gridLayout"(
+                  label: index(
+                    index(
+                      local!itemList,
+                      local!selectedStep,
+                      {}
+                    ),
+                    "step",
+                    {}
+                  ) &amp; "-" &amp; local!selectedOption,
+                  totalCount: 3,
+                  headerCells: {
+                    #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(
+                      label: "Column 1"
+                    ),
+                    #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(
+                      label: "Column 2"
+                    ),
+                    #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(
+                      label: "Column 3"
+                    )
+                  },
+                  rows: #"SYSTEM_SYSRULES_forEach"(
+                    items: enumerate(
+                      3
+                    ) + 1,
+                    expression: #"SYSTEM_SYSRULES_gridRowLayout"(
+                      contents: {
+                        #"SYSTEM_SYSRULES_textField"(
+                          value: "data 1-" &amp; fv!index,
+                          readOnly: true()
+                        ),
+                        #"SYSTEM_SYSRULES_textField"(
+                          value: "data 2-" &amp; fv!index,
+                          readOnly: true()
+                        ),
+                        #"SYSTEM_SYSRULES_textField"(
+                          value: "data 3-" &amp; fv!index,
+                          readOnly: true()
+                        )
+                      }
+                    )
+                  )
+                )
+              )
+            }
+          )
+        }
+      )
+    }
+  )
+)</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e2a7-95ca-8000-9ba2-011c48011c48_53792"/>
+    </history>
+</contentHaul>

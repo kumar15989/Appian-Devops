@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recordTypeHaul xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <versionUuid>4ff9e5a4-3c10-4edf-ac3b-5b46236e280b</versionUuid>
+  <recordType a:uuid="25c9d191-321d-4413-92d1-c550bf29903a" name="Group Management">
+    <a:pluralName>Group Management</a:pluralName>
+    <a:description/>
+    <a:urlStub>ubIS8Q</a:urlStub>
+    <a:source a:uuid="{urn:com:appian:types:RC}RC_User_Group_Management" xsi:type="a:Datatype"/>
+    <a:listViewTemplateExpr>#"SYSTEM_SYSRULES_recordGridLayoutColumns"(
+  columns: {
+    #"SYSTEM_SYSRULES_gridLayoutColumn"(
+      label: "Group Name",
+      field: "groupName",
+      component: #"SYSTEM_SYSRULES_recordGrid_linkField"(
+        links: #"SYSTEM_SYSRULES_recordLink"(
+          label: rf!groupName,
+          recordType: rp!type,
+          identifier: rp!id
+        )
+      )
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutColumn"(
+      label: "Group Members",
+      width: "DISTRIBUTE",
+      field: "groupMembers",
+      component: #"SYSTEM_SYSRULES_recordGrid_textField"(
+        displayvalue: rf!groupMembers
+      )
+    )
+  },
+  pageSize: 20,
+  defaultSort: #"SYSTEM_SYSRULES_sortInfo"(
+    field: "groupName",
+    ascending: fn!true()
+  ),
+  shadeAlternateRows: true,
+  spacing: "DENSE"
+)</a:listViewTemplateExpr>
+    <a:detailViewCfg>
+      <a:nameExpr>="Summary"</a:nameExpr>
+      <a:uiExpr>{}</a:uiExpr>
+      <a:visibilityExpr>=true()</a:visibilityExpr>
+      <a:urlStub>summary</a:urlStub>
+      <a:headerExpr/>
+    </a:detailViewCfg>
+    <a:isSystem>false</a:isSystem>
+    <a:dataSrcExpr/>
+    <a:facetsListExpr/>
+    <a:titleExpr>rf!groupName</a:titleExpr>
+    <a:defaultFiltersExpr/>
+    <a:layoutType>GRID</a:layoutType>
+    <a:security>16383</a:security>
+    <a:hideLatestNews>false</a:hideLatestNews>
+    <a:isExportable>true</a:isExportable>
+    <a:listViewSrcExpr>#"_a-0000e324-cf90-8000-9ba2-011c48011c48_129928"()</a:listViewSrcExpr>
+    <a:recordViewSrcExpr>{}</a:recordViewSrcExpr>
+    <a:iconId>f0c0</a:iconId>
+    <a:listAutoRefreshInterval>0.0</a:listAutoRefreshInterval>
+  </recordType>
+  <roleMap>
+    <role name="record_type_administrator">
+      <users/>
+      <groups>
+        <groupUuid>_e-0000e232-498c-8000-9aee-01075c01075c_59</groupUuid>
+      </groups>
+    </role>
+  </roleMap>
+  <history>
+    <historyInfo versionUuid="4ff9e5a4-3c10-4edf-ac3b-5b46236e280b"/>
+  </history>
+  <migrationVersion>1</migrationVersion>
+</recordTypeHaul>

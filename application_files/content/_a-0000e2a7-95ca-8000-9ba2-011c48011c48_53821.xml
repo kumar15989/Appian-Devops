@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e2a7-95ca-8000-9ba2-011c48011c48_53832</versionUuid>
+    <rule>
+        <name>SS_getColorCodeByStatus</name>
+        <uuid>_a-0000e2a7-95ca-8000-9ba2-011c48011c48_53821</uuid>
+        <description></description>
+        <parentUuid>_a-0000e2a7-95ca-8000-9ba2-011c48011c48_53728</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>with(
+  local!index: displayvalue(
+    ri!status,
+    {
+      "Completed",
+      "In Progress",
+      "Delayed",
+      "Rejected",
+      "Pending"
+    },
+    enumerate(
+      5
+    ) + 1,
+    {}
+  ),
+  choose(
+    local!index,
+    "#080DAA",
+    /*Completed*/
+    "#2EC22D",
+    /*In Process(all good)*/
+    "#F1F64E",
+    /*In Process(delayed/past SLA)*/
+    "#F1261F",
+    /*In Process(rejections)*/
+    "#F93528"/*Pending*/
+    
+  )
+)</definition>
+        <namedTypedValue>
+            <name>status</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e2a7-95ca-8000-9ba2-011c48011c48_53832"/>
+    </history>
+</contentHaul>

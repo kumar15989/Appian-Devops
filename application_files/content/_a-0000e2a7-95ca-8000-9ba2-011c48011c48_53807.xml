@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e2a7-95ca-8000-9ba2-011c48011c48_53845</versionUuid>
+    <rule>
+        <name>SS_UI_HierarchyBrowser</name>
+        <uuid>_a-0000e2a7-95ca-8000-9ba2-011c48011c48_53807</uuid>
+        <description></description>
+        <parentUuid>_a-0000e2a7-95ca-8000-9ba2-011c48011c48_53728</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  local!itemList: {
+    {
+      id: 1,
+      step: "Step 1",
+      status: "Completed",
+      options: {
+        "Available",
+        "Accepted",
+        "Completed"
+      }
+    },
+    {
+      id: 2,
+      step: "Step 2",
+      status: "Completed",
+      options: {
+        "Available",
+        "Accepted",
+        "Completed",
+        "Rejected"
+      }
+    },
+    {
+      id: 3,
+      step: "Step 3",
+      status: "In Progress",
+      options: {
+        "Available",
+        "Accepted",
+        "Completed",
+        "Rejected",
+        "Pending"
+      }
+    },
+    {
+      id: 4,
+      step: "Step 4",
+      status: "Pending",
+      options: {
+        "Available",
+        "Completed",
+        "Rejected"
+      }
+    },
+    {
+      id: 5,
+      step: "Step 5",
+      status: "Pending",
+      options: {
+        "Available",
+        "Accepted",
+        "Rejected",
+        "Pending"
+      }
+    }
+  },
+  local!selectedStep,
+  local!selectedStepOptions,
+  local!selectedOption,
+  #"SYSTEM_SYSRULES_dashboardLayout_v1"(
+    contents: {
+      #"SYSTEM_SYSRULES_columnsLayout"(
+        columns: {
+          #"SYSTEM_SYSRULES_forEach"(
+            items: local!itemList,
+            expression: #"SYSTEM_SYSRULES_columnLayout"(
+              contents: {
+                #"SYSTEM_SYSRULES_cardLayout"(
+                  contents: {
+                    #"SYSTEM_SYSRULES_richTextDisplayField"(
+                      labelPosition: "COLLAPSED",
+                      value: {
+                        #"SYSTEM_SYSRULES_richTextIcon"(
+                          icon: "arrow-right",
+                          color: #"_a-0000e2a7-95ca-8000-9ba2-011c48011c48_53821"(
+                            fv!item.status
+                          ),
+                          size: "LARGE"
+                        ),
+                        char(
+                          10
+                        ),
+                        #"SYSTEM_SYSRULES_richTextItem_v1"(
+                          text: fv!item.step,
+                          color: "ACCENT",
+                          size: "SMALL",
+                          style: "PLAIN"
+                        )
+                      },
+                      align: "CENTER"
+                    )
+                  },
+                  link: if(
+                    isnull(
+                      local!selectedStep
+                    ),
+                    #"SYSTEM_SYSRULES_dynamicLink"(
+                      saveInto: {
+                        a!save(
+                          local!selectedStep,
+                          fv!item.step
+                        ),
+                        a!save(
+                          local!selectedStepOptions,
+                          fv!item.options
+                        )
+                      }
+                    ),
+                    if(
+                      local!selectedStep = fv!item.step,
+                      {},
+                      #"SYSTEM_SYSRULES_dynamicLink"(
+                        saveInto: {
+                          a!save(
+                            local!selectedStep,
+                            fv!item.step
+                          ),
+                          a!save(
+                            local!selectedStepOptions,
+                            fv!item.options
+                          ),
+                          a!save(
+                            local!selectedOption,
+                            null
+                          )
+                        }
+                      )
+                    )
+                  ),
+                  height: "AUTO",
+                  style: if(
+                    isnull(
+                      local!selectedStep
+                    ),
+                    "NONE",
+                    if(
+                      local!selectedStep = fv!item.step,
+                      "STANDARD",
+                      "NONE"
+                    )
+                  )
+                )
+              },
+              width: "NARROW"
+            )
+          )
+        }
+      ),
+      #"SYSTEM_SYSRULES_textField"(
+        readOnly: true()
+      ),
+      #"SYSTEM_SYSRULES_textField"(
+        readOnly: true()
+      ),
+      #"SYSTEM_SYSRULES_columnsLayout"(
+        alignVertical: "MIDDLE",
+        columns: {
+          if(
+            isnull(
+              local!selectedStep
+            ),
+            {},
+            #"SYSTEM_SYSRULES_forEach"(
+              items: local!selectedStepOptions,
+              expression: #"SYSTEM_SYSRULES_columnLayout"(
+                contents: {
+                  #"SYSTEM_SYSRULES_cardLayout"(
+                    contents: {
+                      #"SYSTEM_SYSRULES_richTextDisplayField"(
+                        labelPosition: "COLLAPSED",
+                        value: {
+                          #"SYSTEM_SYSRULES_richTextIcon"(
+                            icon: "arrow-right",
+                            color: #"_a-0000e2a7-95ca-8000-9ba2-011c48011c48_53821"(
+                              index(
+                                {
+                                  "Completed",
+                                  "In Progress",
+                                  "Delayed",
+                                  "Rejected",
+                                  "Pending"
+                                },
+                                fv!index,
+                                {}
+                              )
+                            ),
+                            size: "LARGE"
+                          ),
+                          char(
+                            10
+                          ),
+                          #"SYSTEM_SYSRULES_richTextItem_v1"(
+                            text: fv!item,
+                            color: "ACCENT",
+                            size: "SMALL",
+                            style: "PLAIN"
+                          )
+                        },
+                        align: "CENTER"
+                      )
+                    },
+                    link: if(
+                      isnull(
+                        local!selectedOption
+                      ),
+                      #"SYSTEM_SYSRULES_dynamicLink"(
+                        saveInto: a!save(
+                          local!selectedOption,
+                          fv!item
+                        )
+                      ),
+                      if(
+                        local!selectedOption = fv!item,
+                        {},
+                        #"SYSTEM_SYSRULES_dynamicLink"(
+                          saveInto: a!save(
+                            local!selectedOption,
+                            fv!item
+                          )
+                        )
+                      )
+                    ),
+                    height: "AUTO",
+                    style: if(
+                      isnull(
+                        local!selectedOption
+                      ),
+                      "NONE",
+                      if(
+                        local!selectedOption = fv!item,
+                        "STANDARD",
+                        "NONE"
+                      )
+                    )
+                  )
+                },
+                width: "NARROW"
+              )
+            )
+          )
+        }
+      ),
+      #"SYSTEM_SYSRULES_textField"(
+        readOnly: true()
+      ),
+      #"SYSTEM_SYSRULES_textField"(
+        readOnly: true()
+      ),
+      #"SYSTEM_SYSRULES_columnsLayout"(
+        columns: {
+          #"SYSTEM_SYSRULES_columnLayout"(
+            contents: {
+              if(
+                isnull(
+                  local!selectedOption
+                ),
+                {},
+                #"SYSTEM_SYSRULES_gridLayout"(
+                  label: local!selectedStep &amp; "-" &amp; local!selectedOption,
+                  totalCount: 3,
+                  headerCells: {
+                    #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(
+                      label: "Column 1"
+                    ),
+                    #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(
+                      label: "Column 2"
+                    ),
+                    #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(
+                      label: "Column 3"
+                    )
+                  },
+                  rows: #"SYSTEM_SYSRULES_forEach"(
+                    items: enumerate(
+                      3
+                    ) + 1,
+                    expression: #"SYSTEM_SYSRULES_gridRowLayout"(
+                      contents: {
+                        #"SYSTEM_SYSRULES_textField"(
+                          value: "data 1-" &amp; fv!index,
+                          readOnly: true()
+                        ),
+                        #"SYSTEM_SYSRULES_textField"(
+                          value: "data 2-" &amp; fv!index,
+                          readOnly: true()
+                        ),
+                        #"SYSTEM_SYSRULES_textField"(
+                          value: "data 3-" &amp; fv!index,
+                          readOnly: true()
+                        )
+                      }
+                    )
+                  )
+                )
+              )
+            }
+          )
+        }
+      )
+    }
+  )
+)</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e2a7-95ca-8000-9ba2-011c48011c48_53845"/>
+    </history>
+</contentHaul>

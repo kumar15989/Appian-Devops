@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e324-cf90-8000-9ba2-011c48011c48_138809</versionUuid>
+    <rule>
+        <name>SS_getDateForCardLayout</name>
+        <uuid>_a-0000e324-cf90-8000-9ba2-011c48011c48_137512</uuid>
+        <description></description>
+        <parentUuid>_a-0000e2a7-95ca-8000-9ba2-011c48011c48_53728</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>with(
+  local!startDay: weekday(
+    todate(
+      ri!month &amp; "/1/" &amp; ri!year
+    ),
+    1
+  ),
+  local!numberOfDays: daysinmonth(
+    ri!month,
+    ri!year
+  ),
+  local!actualDates: enumerate(
+    local!numberOfDays
+  ) + 1,
+  local!prefixZeros: choose(
+    local!startDay,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ),
+  local!totalDates: sum(
+    local!numberOfDays,
+    local!prefixZeros
+  ),
+  local!suffixZeros: if(
+    local!startDay = 7,
+    42 - tointeger(
+      local!totalDates
+    ),
+    35 - tointeger(
+      local!totalDates
+    )
+  ),
+  local!suffixZerosPositive: if(
+    local!suffixZeros &lt; 0,
+    0,
+    local!suffixZeros
+  ),
+  local!finalDates: append(
+    repeat(
+      local!prefixZeros,
+      0
+    ),
+    local!actualDates,
+    repeat(
+      local!suffixZerosPositive,
+      0
+    )
+  ),
+  local!rows: enumerate(
+    if(
+      local!startDay = 7,
+      6,
+      5
+    )
+  ),
+  #"SYSTEM_SYSRULES_forEach"(
+    local!rows,
+    index(
+      local!finalDates,
+      enumerate(
+        7
+      ) + (
+        7 * fv!item
+      ) + 1,
+      {}
+    )
+  )
+)</definition>
+        <namedTypedValue>
+            <name>year</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>month</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e324-cf90-8000-9ba2-011c48011c48_138809"/>
+    </history>
+</contentHaul>

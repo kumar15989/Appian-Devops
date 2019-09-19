@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e324-cf90-8000-9ba2-011c48011c48_123625</versionUuid>
+    <rule>
+        <name>test_groupmgmt</name>
+        <uuid>_a-0000e324-cf90-8000-9ba2-011c48011c48_123621</uuid>
+        <description></description>
+        <parentUuid>_a-0000e2a7-95ca-8000-9ba2-011c48011c48_53728</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>a!localVariables(
+  local!searchValue: if(
+    isnull(
+      rsp!searchText
+    ),
+    "",
+    rsp!searchText
+  ),
+  local!groups: getallgroupsnames(
+    - 1,
+    0
+  ),
+  local!data: #"SYSTEM_SYSRULES_forEach"(
+    local!groups,
+    'type!{urn:com:appian:types:test}SS_Test'(
+      id: fv!index,
+      groupName: fv!item,
+      groupMembers: getdistinctusers(
+        a!groupsByName(
+          fv!item
+        )
+      )
+    )
+  ),
+  local!filteredData: if(
+    isnull(
+      local!searchValue
+    ),
+    local!data,
+    #"_a-0000e323-af86-8000-9ba2-011c48011c48_123010"(
+      data: local!data,
+      searchValue: local!searchValue
+    )
+  ),
+  #"SYSTEM_SYSRULES_dataSubset"(
+    startIndex: rsp!pagingInfo.startIndex,
+    batchSize: 20,
+    sort: rsp!pagingInfo.sort,
+    totalCount: count(
+      local!filteredData
+    ),
+    data: local!filteredData,
+    identifiers: index(
+      local!filteredData,
+      "id",
+      {}
+    )
+  )
+)</definition>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users>
+                <userUuid>SmitaA</userUuid>
+            </users>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e324-cf90-8000-9ba2-011c48011c48_123625"/>
+    </history>
+</contentHaul>
